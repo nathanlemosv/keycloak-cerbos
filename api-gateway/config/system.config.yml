@@ -1,0 +1,25 @@
+db:
+  redis:
+    emulate: true
+    namespace: EG
+  connect-pg-simple:
+
+crypto:
+  cipherKey: sensitiveKey
+  algorithm: aes256
+  saltRounds: 10
+
+session:
+  secret: keyboard cat
+  resave: false
+  saveUninitialized: false
+accessTokens:
+  timeToExpiry: 7200000
+refreshTokens:
+  timeToExpiry: 7200000
+authorizationCodes:
+  timeToExpiry: 300000
+
+plugins:
+  auth-middleawre:
+    package: "./plugins/auth-middleware/manifest.js"

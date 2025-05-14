@@ -2,3 +2,4 @@
 .DS_Store
 /keycloak/.run/
 /keycloak/target/
+/api-gateway/node_modules

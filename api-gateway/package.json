@@ -1,0 +1,19 @@
+{
+  "name": "api-gateway",
+  "description": "API Gateway",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "cross-env LOG_LEVEL=debug node server.js",
+    "start-prod": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "jwks-rsa": "^2.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "auth-middleware": "^1.0.0",
+    "cross-env": "^6.0.3",
+    "express-gateway": "^1.16.8",
+    "http-proxy": "^1.18.0"
+  }
+}

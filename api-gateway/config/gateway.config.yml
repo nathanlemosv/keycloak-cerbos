@@ -1,0 +1,31 @@
+http:
+  port: "${HTTP_PORT:-8080}"
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  resource-api:
+    paths: [ "/resource-api/*", "/resource-api" ]
+serviceEndpoints:
+  resource-api:
+    url: "${RESOURCE_API_URI}/resources"
+policies:
+  - proxy
+  - log
+  - verify-auth
+pipelines:
+  resource-api:
+    apiEndpoints:
+      - resource-api
+    policies:
+      - log:
+          - action:
+              message: "resource: ${req.method} ${req.originalUrl}"
+      - verify-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: resource-api
+              changeOrigin: true
+              prependPath: true
+              ignorePath: false
+              stripPath: true
