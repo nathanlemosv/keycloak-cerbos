@@ -7,8 +7,8 @@ apiEndpoints:
   resource-api:
     paths: [ "/resource-api/*", "/resource-api" ]
 serviceEndpoints:
-  resource-api:
-    url: "${RESOURCE_API_URI}/resources"
+  resource-api-svc:
+    url: "${RESOURCE_API_URI}/resource-api"
 policies:
   - proxy
   - log
@@ -20,11 +20,11 @@ pipelines:
     policies:
       - log:
           - action:
-              message: "resource: ${req.method} ${req.originalUrl}"
+              message: "resource-api: ${req.method} ${req.originalUrl}"
       - verify-auth:
       - proxy:
           - action:
-              serviceEndpoint: resource-api
+              serviceEndpoint: resource-api-svc
               changeOrigin: true
               prependPath: true
               ignorePath: false
