@@ -1,0 +1,18 @@
+apiVersion: api.cerbos.dev/v1
+resourcePolicy:
+  version: default
+  resource: resource
+
+  rules:
+    - actions: ['view', 'edit', 'delete']
+      effect: EFFECT_ALLOW
+      roles: ['admin']
+    - actions: ['view', 'edit']
+      effect: EFFECT_ALLOW
+      roles: ['user']
+      condition:
+        match:
+          expr: request.resource.attr.author == request.principal.id
+    - actions: ['view', 'edit',’approve’]
+      effect: EFFECT_ALLOW
+      roles: ['manager']

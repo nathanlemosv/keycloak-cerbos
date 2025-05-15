@@ -1,0 +1,15 @@
+apiVersion: api.cerbos.dev/v1
+principalPolicy:
+  version: default
+  principal: "john_doe"
+  rules:
+    - resource: resource
+      actions:
+        - action: "approve"
+          effect: EFFECT_ALLOW
+          condition:
+            match:
+              all:
+                Of:
+                  - expr: request.resource.attr.department == 'Marketing'
+                  - expr: request.resource.attr.status == 'pending_approval'

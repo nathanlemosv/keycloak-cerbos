@@ -16,7 +16,8 @@ func main() {
 	err = json.Unmarshal(data, &resourceList)
 	check(logger, err)
 	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
+	resourceApi := r.Group("/resource-api")
+	resourceApi.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, resourceList)
 	})
 	err = r.Run(":8585")
