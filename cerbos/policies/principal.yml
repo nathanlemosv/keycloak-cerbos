@@ -10,6 +10,6 @@ principalPolicy:
           condition:
             match:
               all:
-                Of:
+                of:
                   - expr: request.resource.attr.department == 'Marketing'
                   - expr: request.resource.attr.status == 'pending_approval'

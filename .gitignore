@@ -1,5 +1,6 @@
 .idea
 .DS_Store
+/node_modules
 /keycloak/.run/
 /keycloak/target/
 /api-gateway/node_modules
