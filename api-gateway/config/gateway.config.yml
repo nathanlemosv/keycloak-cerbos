@@ -8,7 +8,7 @@ apiEndpoints:
     paths: [ "/resource-api/*", "/resource-api" ]
 serviceEndpoints:
   resource-api-svc:
-    url: "${RESOURCE_API_URI}/resource-api"
+    url: "${API_URI}/resource-api"
 policies:
   - proxy
   - log

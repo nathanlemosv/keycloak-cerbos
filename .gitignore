@@ -4,3 +4,4 @@
 /keycloak/.run/
 /keycloak/target/
 /api-gateway/node_modules
+/resource-api/node_modules

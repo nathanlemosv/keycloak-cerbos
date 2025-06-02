@@ -1,0 +1,18 @@
+{
+  "name": "resource-api",
+  "version": "1.0.0",
+  "description": "sample api",
+  "main": "yes",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "nathan.lemos",
+  "license": "ISC",
+  "dependencies": {
+    "@cerbos/grpc": "^0.21.0",
+    "express": "5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "3.1.10"
+  }
+}
